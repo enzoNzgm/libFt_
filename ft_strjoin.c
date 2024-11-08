@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 16:44:34 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/08 14:13:26 by enzuguem         ###   ########.fr       */
+/*   Created: 2024/11/08 18:08:19 by enzuguem          #+#    #+#             */
+/*   Updated: 2024/11/08 18:29:42 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*ptr;
+	char	*str;
+	int		i;
 
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	i = 0;
+	if (!s1 || !s2)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	while (*s1)
+	{
+		str[i] = *s1;
+		i++;
+		s1++;
+	}
+	while (*s2)
+	{
+		str[i] = *s2;
+		i++;
+		s2++;
+	}
+	str[i] = '\0';
+	return (str);
 }

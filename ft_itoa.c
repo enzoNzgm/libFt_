@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 16:44:34 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/08 14:13:26 by enzuguem         ###   ########.fr       */
+/*   Created: 2024/11/08 19:00:57 by enzuguem          #+#    #+#             */
+/*   Updated: 2024/11/08 19:06:19 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_itoa(int n)
 {
-	void	*ptr;
+	char	*str;
+	int		i;
+	int		len;
+	int		nb;
 
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	i = 0;
+	len = (n <= 0) ? 1 : 0;
+	nb = n;
+	while (nb && ++len)
+		nb /= 10;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	if (n < 0 && (str[i++] = '-'))
+		n = -n;
+	while (len-- > i)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	str[i] = '\0';
+	return (str);
 }
