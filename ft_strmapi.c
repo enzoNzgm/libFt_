@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 17:08:36 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/12 19:04:17 by enzuguem         ###   ########.fr       */
+/*   Created: 2024/11/12 12:02:21 by enzuguem          #+#    #+#             */
+/*   Updated: 2024/11/12 12:23:55 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-#include <string.h>
 
-char	*ft_strdup(const char *s)
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 {
-	size_t	i;
-	char	*cpy;
-	size_t	len;
+	char	*str;
+	int		i;
 
-	cpy = NULL;
-	len = 0;
-	while (s[len])
-		len++;
-	cpy = malloc(sizeof(char) * len + 1);
-	if (!cpy)
-		return (NULL);
+	str = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!str)
+		return (0);
 	i = 0;
 	while (s[i])
 	{
-		cpy[i] = s[i];
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	str[i] = 0;
+	return (str);
 }

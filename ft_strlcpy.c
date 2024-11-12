@@ -6,7 +6,7 @@
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:14:54 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/06 14:21:37 by enzuguem         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:10:55 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	if (!dest || !src)
-		return (0);
 	while (src[j])
 		j++;
 	if (size == 0)

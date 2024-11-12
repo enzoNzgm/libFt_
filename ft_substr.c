@@ -6,7 +6,7 @@
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:28:47 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/08 14:59:46 by enzuguem         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:18:19 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	size_t 	i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
