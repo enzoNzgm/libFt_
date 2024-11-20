@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:44:59 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/19 12:23:23 by enzuguem         ###   ########.fr       */
+/*   Created: 2024/11/19 13:20:31 by enzuguem          #+#    #+#             */
+/*   Updated: 2024/11/19 14:06:38 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
+	if (!lst)
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
