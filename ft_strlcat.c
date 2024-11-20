@@ -6,7 +6,7 @@
 /*   By: enzuguem <enzuguem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:32:05 by enzuguem          #+#    #+#             */
-/*   Updated: 2024/11/08 14:12:50 by enzuguem         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:29:36 by enzuguem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	if (j < size)
 		dest[i] = '\0';
-	return (j + strlen(src));
+	return (j + ft_strlen(src));
 }
